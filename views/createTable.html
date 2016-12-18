@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-2">
+        <label ng-click='groceryTable.toggleOrder("date")'>Date</label>
+    </div>
+    <div class="col-md-2">
+        <label ng-click='groceryTable.toggleOrder("grocceryitem")'>Grocery Item</label>
+    </div>
+    <div class="col-md-2">
+        <label ng-click='groceryTable.toggleOrder("quantity")'>Quantity</label>
+    </div>
+    <div class="col-md-2">
+        <label ng-click='groceryTable.toggleOrder("price")'>Price</label>
+    </div>
+</div>
+<input type="text" ng-model="search" placeholder="Search">
+<div class="row" ng-repeat="list in groceryArray|filter:search">
+    <div class="col-md-2">
+        {{list.date}}
+    </div>
+    <div class="col-md-2">
+        {{list.grocceryitem}}
+    </div>
+    <div class="col-md-2">
+        {{list.quantity}}
+    </div>
+    <div class="col-md-2">
+        {{list.price}}
+    </div>
+    <div class="col-md-2">
+        <input type="checkbox">
+        <button class="btn btn-info" ng-click="groceryForm.editList(list)">Edit</button>
+        <button class="btn btn-danger" ng-click="groceryForm.deleteList(list.grocceryid)">Delete</button>
+    </div>
+</div>

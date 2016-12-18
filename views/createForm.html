@@ -1,0 +1,25 @@
+<form name="grocForm" novalidate>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="date" name="grocdate" ng-model="groceryList.date" placeholder="yyyy-mm-dd" required>
+            <p ng-show="grocForm.grocdate.$error.required" style="color:red">Date is required</p>
+        </div>
+        <div class="col-md-2">
+            <input type="text " name="name" ng-model="groceryList.grocceryitem " placeholder="Enter the groccery name" required>
+            <p ng-show="grocForm.name.$error.required" style="color:red">Grocery name is required</p>
+        </div>
+        <div class="col-md-2">
+            <input type="number" name="qty " ng-model="groceryList.quantity" min="0" max="10" integer placeholder="Enter the quantity" required>
+            <p ng-show="grocForm.qty.$error.required" style="color:red">Quantity is required</p>
+            <span ng-show="grocForm.qty.$error.integer">The value is not an integer</span>
+            <span ng-show="grocForm.qty.$error.min || grocForm.qty.$error.max ">Quantity(0-10)</span>
+        </div>
+        <div class="col-md-2">
+            <input type="text" name="price" ng-model="groceryList.price" placeholder="Enter the price" required>
+            <p ng-show="grocForm.price.$error.required" style="color:red">Price is required</p>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success" ng-click="groceryForm.addList()">Submit</button>
+        </div>
+    </div>
+</form>
